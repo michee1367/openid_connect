@@ -1,0 +1,20 @@
+{
+    "name": "mink67/openid_connect",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mink67\\OpenidConnect\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Michée NKUSU",
+            "email": "nkusumichee1367@gmail.com"
+        }
+    ],
+    "require": {
+        "league/oauth2-client": "^2.6",
+        "firebase/php-jwt": "^6.0",
+        "rakit/validation": "^1.4"
+    }
+}
