@@ -36,14 +36,15 @@ class AccessTokenToUser {
         $jwks = $this->getConcreteJwks($jwks);
 
         try {
-
+            //dd($jwks);
             $data = JWT::decode($strToken, JWK::parseKeySet($jwks), array_keys(JWT::$supported_algs));
             $arrData = json_decode(json_encode($data), true);
+            //dd($arrData);
             $this->validate($arrData);
 
             return $this->oAuthUserProvider->getOAuthUser(
                 $accessToken,
-                $arrData["realm_access"]["roles"],
+                $arrData["roles"],
                 $arrData["sub"],
                 $arrData["preferred_username"],
                 $arrData["azp"],
@@ -75,6 +76,7 @@ class AccessTokenToUser {
             'sub'                 => 'required',// id user
             'realm_access'                 => 'required',// roles wrapper 
             'realm_access.roles'                 => 'required|array',// roles container 
+            'roles'                 => 'required|array',// roles container 
             'preferred_username'              => 'required',
             'scope'      => 'required',// scope
         ]);
