@@ -11,7 +11,7 @@ use League\OAuth2\Client\Token\AccessToken;
 interface OAuthUser
 {
 
-    const IRI_PREFIX="/kc/suers/";
+    const IRI_PREFIX="/kc/users/";
 
 
     public function getRoles(): array;
